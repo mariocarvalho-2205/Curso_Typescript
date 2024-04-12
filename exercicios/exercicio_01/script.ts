@@ -37,13 +37,14 @@ function loadLocalStorage () {
         const UserData = JSON.parse(localUserData)
         if (isUserData(UserData)) {
             console.log(UserData)
+            
             Object.entries(UserData).forEach(([key, value]) => {
+                const input = document.getElementById(key) as HTMLInputElement;
 
-                const input = document.getElementById(key)
-                if (input instanceof HTMLInputElement) {
+                if(typeof value === "string") {
                     input.value = value;
-                    window.UserData[key] = value
-                }
+                  }
+
             });
         }
     }

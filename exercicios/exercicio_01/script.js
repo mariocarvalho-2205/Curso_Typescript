@@ -28,9 +28,8 @@ function loadLocalStorage() {
             console.log(UserData);
             Object.entries(UserData).forEach(([key, value]) => {
                 const input = document.getElementById(key);
-                if (input instanceof HTMLInputElement) {
+                if (typeof value === "string") {
                     input.value = value;
-                    window.UserData[key] = value;
                 }
             });
         }
@@ -44,4 +43,4 @@ function handleInput({ target }) {
     }
 }
 const form = document.querySelector('#form');
-form === null || form === void 0 ? void 0 : form.addEventListener("keyup", handleInput);
+form?.addEventListener("keyup", handleInput);
