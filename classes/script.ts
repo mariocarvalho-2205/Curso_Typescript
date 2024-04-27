@@ -9,7 +9,8 @@ console.log(document.constructor)
 // criando classe
 class Produto {
     nome: string
-    tipo: string | undefined
+    tipo: string | undefined  // sempre que for opcional, tem que colocar o undefined com opcionao
+    
 
     constructor(nome: string, tipo?: string) {
         this.nome = nome
