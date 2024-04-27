@@ -29,7 +29,10 @@ function loadLocalStorage() {
             Object.entries(UserData).forEach(([key, value]) => {
                 const input = document.getElementById(key);
                 if (input instanceof HTMLInputElement) {
-                    input.value = value;
+                    if (typeof value === "string") {
+                        input.value = value;
+                    }
+                    console.log(value);
                     window.UserData[key] = value;
                 }
             });

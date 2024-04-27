@@ -8,6 +8,7 @@ interface Window {
     UserData: any;
 };
 
+
 window.UserData = {}
 
 function isUserData(obj: unknown): boolean {
@@ -27,7 +28,7 @@ function validJSON ( str: string) {
     } catch (error) {
         return false;
     }
-
+    
     return true;
 }
 
@@ -38,10 +39,13 @@ function loadLocalStorage () {
         if (isUserData(UserData)) {
             console.log(UserData)
             Object.entries(UserData).forEach(([key, value]) => {
-
+                
                 const input = document.getElementById(key)
                 if (input instanceof HTMLInputElement) {
-                    input.value = value;
+                    if (typeof value === "string") {
+                        input.value = value;
+                    }
+                    console.log(value)
                     window.UserData[key] = value
                 }
             });
