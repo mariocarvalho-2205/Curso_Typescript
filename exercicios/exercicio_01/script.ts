@@ -38,6 +38,7 @@ function loadLocalStorage () {
         const UserData = JSON.parse(localUserData)
         if (isUserData(UserData)) {
             console.log(UserData)
+            
             Object.entries(UserData).forEach(([key, value]) => {
                 
                 const input = document.getElementById(key)
